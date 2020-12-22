@@ -15,7 +15,7 @@ e_date = st.date_input("end date")
 intvl = st.select_slider("interval", options=['1d', '5d', '1wk', '1mo', '3mo'])
 
 if len(ticker) != 0:
-    stock = yf.download(ticker, start=s_date, end=e_date, interval="1d")
+    stock = yf.download(ticker, start=s_date, end=e_date, interval=intvl)
     # stock=pd.DataFrame(stock)
     stock = stock['Adj Close']
     stock[:] = ((stock[:] / stock.iloc[0] - 1) * 100)
